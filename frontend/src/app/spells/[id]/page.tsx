@@ -136,20 +136,20 @@ export default function SpellDetailPage() {
           {/* Детали заклинания */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-sm text-gray-500 mb-1">Время наложения</div>
-              <div className="font-medium">{spell.castingTime}</div>
+              <div className="text-sm text-blue-500 mb-1">Время наложения</div>
+              <div className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{spell.castingTime}</div>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-sm text-gray-500 mb-1">Дистанция</div>
-              <div className="font-medium">{spell.range}</div>
+              <div className="text-sm text-blue-500 mb-1">Дистанция</div>
+              <div className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{spell.range}</div>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-sm text-gray-500 mb-1">Компоненты</div>
-              <div className="font-medium">{spell.components}</div>
+              <div className="text-sm text-blue-500 mb-1">Компоненты</div>
+              <div className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{spell.components}</div>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <div className="text-sm text-gray-500 mb-1">Длительность</div>
-              <div className="font-medium">{spell.duration}</div>
+              <div className="text-sm text-blue-500 mb-1">Длительность</div>
+              <div className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">{spell.duration}</div>
             </div>
           </div>
 

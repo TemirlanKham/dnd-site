@@ -5,7 +5,7 @@ import { useQuery, useSubscription, gql } from '@apollo/client';
 import { useAuthStore } from '../store/useAuthStore';
 import CommentForm from '../components/CommentForm';
 
-// Определяем тип для комментария
+
 interface CommentType {
   id: string;
   content: string;

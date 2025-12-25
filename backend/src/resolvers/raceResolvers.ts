@@ -7,21 +7,9 @@ export const raceResolvers = {
       return await Race.find();
     },
     race: async (_: any, { id }: { id: string }) => {
-      // Ищем по нашему полю id (строка), а не по _id
+      
       return await Race.findOne({ id: id });
       
-      // Или можно сделать универсальный поиск:
-      // try {
-      //   // Сначала ищем по нашему id (строка "1", "2")
-      //   let race = await Race.findOne({ id: id });
-      //   if (race) return race;
-      //   
-      //   // Если не нашли, пробуем по _id (ObjectId)
-      //   race = await Race.findById(id);
-      //   return race;
-      // } catch (error) {
-      //   return null;
-      // }
     }
   },
   Race: {

@@ -21,7 +21,6 @@ export default function ClassesPage() {
   if (loading) return <div className="text-center py-8">Загрузка...</div>;
   if (error) return <div className="text-center py-8 text-red-600">Ошибка: {error.message}</div>;
 
-  // Проверка на наличие данных
   if (!data?.classes?.length) {
     return <div className="text-center py-8">Нет данных о классах</div>;
   }

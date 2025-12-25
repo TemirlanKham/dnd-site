@@ -18,7 +18,6 @@ import bodyParser from 'body-parser';
 const startServer = async () => {
   const app = express();
   
-  // Настройка CORS для разрешения запросов с фронтенда
   app.use(cors({
     origin: ['http://localhost:3000', 'http://frontend:3000'],
     credentials: true,
@@ -58,11 +57,10 @@ const startServer = async () => {
 
   await server.start();
   
-  // Применяем middleware с явным приведением типа
   server.applyMiddleware({ 
     app: app as any,
     path: '/graphql',
-    cors: false // CORS уже настроен выше
+    cors: false
   });
 
   const PORT = process.env.PORT || 4000;

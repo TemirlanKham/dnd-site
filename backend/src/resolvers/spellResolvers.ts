@@ -13,7 +13,7 @@ export const spellResolvers = {
       return await Spell.find();
     },
     spell: async (_: any, { id }: { id: string }) => {
-      return await Spell.findById(id);
+      return await Spell.findOne({ id: id });
     }
   },
   Spell: {

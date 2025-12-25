@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { Spell } from '../../types';
+import Link from 'next/link';
 
 const GET_SPELLS = gql`
   query GetSpells($search: String) {
@@ -74,6 +75,10 @@ export default function SpellsPage() {
               key={spell.id} 
               className="bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
             >
+            <Link 
+      href={`/spells/${spell.id}`}
+      className="block"
+    >
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h2 className="text-2xl font-bold text-white mb-1">{spell.name}</h2>
@@ -111,6 +116,7 @@ export default function SpellsPage() {
                   ))}
                 </div>
               </div>
+              </Link>
             </div>
           ))
         )}

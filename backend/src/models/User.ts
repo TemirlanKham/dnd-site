@@ -7,7 +7,6 @@ export interface IUser extends Document {
   password: string;
   createdAt: Date;
   comparePassword(password: string): Promise<boolean>;
-  // Добавляем свойство id
   id: string;
 }
 
@@ -17,12 +16,10 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   createdAt: { type: Date, default: Date.now }
 }, {
-  // Добавляем опции схемы для виртуальных полей
   toJSON: { virtuals: true },
   toObject: { virtuals: true }
 });
 
-// Добавляем виртуальное поле id
 UserSchema.virtual('id').get(function(this: IUser) {
   return this._id.toHexString();
 });

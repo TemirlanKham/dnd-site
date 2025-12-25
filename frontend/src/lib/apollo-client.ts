@@ -7,19 +7,15 @@ import { createClient } from 'graphql-ws';
 import { split } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
 
-// Определяем URL для разных сред
 const getGraphQLUri = () => {
-  // Если указана переменная окружения, используем её
   if (process.env.NEXT_PUBLIC_GRAPHQL_URI) {
     return process.env.NEXT_PUBLIC_GRAPHQL_URI;
   }
   
-  // Если в браузере и на localhost, используем localhost
   if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
     return 'http://localhost:4000/graphql';
   }
   
-  // По умолчанию
   return 'http://localhost:4000/graphql';
 };
 
