@@ -40,7 +40,7 @@ export default function RaceDetailPage({ params }: { params: { id: string } }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Левая колонка */}
         <div className="space-y-6">
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-black rounded-lg shadow p-6">
             <h2 className="text-xl font-bold mb-4">Основная информация</h2>
             <div className="space-y-4">
               <div className="flex items-center">
@@ -62,7 +62,7 @@ export default function RaceDetailPage({ params }: { params: { id: string } }) {
           
           {/* Особенности */}
           {race.traits && race.traits.length > 0 && (
-            <div className="bg-white rounded-lg shadow p-6">
+            <div className="bg-black rounded-lg shadow p-6">
               <h2 className="text-xl font-bold mb-4">Особенности</h2>
               <ul className="space-y-3">
                 {race.traits.map((trait, index) => (
@@ -70,7 +70,7 @@ export default function RaceDetailPage({ params }: { params: { id: string } }) {
                     <span className="inline-block w-6 h-6 bg-blue-100 text-blue-800 rounded-full text-center mr-2 flex-shrink-0">
                       {index + 1}
                     </span>
-                    <span className="text-gray-700">{trait}</span>
+                    <span className="text-white-700">{trait}</span>
                   </li>
                 ))}
               </ul>
@@ -80,9 +80,9 @@ export default function RaceDetailPage({ params }: { params: { id: string } }) {
         
         {/* Правая колонка */}
         <div className="space-y-6">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-bold mb-4">Описание</h2>
-            <div className="text-gray-700 leading-relaxed">
+          <div className="bg-black rounded-lg shadow p-6">
+            <h2 className="text-gray font-bold mb-4">Описание</h2>
+            <div className="text-white-700 leading-relaxed">
               {race.description.split('\n').map((paragraph, index) => (
                 <p key={index} className="mb-4 last:mb-0">
                   {paragraph}
@@ -92,7 +92,7 @@ export default function RaceDetailPage({ params }: { params: { id: string } }) {
           </div>
           
           {/* Кнопка возврата */}
-          <div className="bg-gray-50 rounded-lg p-6 text-center">
+          <div className="bg-black-50 rounded-lg p-6 text-center">
             <a 
               href="/races"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition-colors"

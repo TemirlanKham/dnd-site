@@ -9,6 +9,7 @@ export const spellResolvers = {
           name: { $regex: search, $options: 'i' }
         });
       }
+      
       return await Spell.find();
     },
     spell: async (_: any, { id }: { id: string }) => {

@@ -2,6 +2,8 @@
 
 import { useQuery, gql } from '@apollo/client';
 import { Race } from '../../types';
+import Link from 'next/link';
+
 
 const GET_RACES = gql`
   query GetRaces {
@@ -34,6 +36,10 @@ export default function RacesPage() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {data.races.map((race: Race) => (
+            <Link 
+      href={`/races/${race.id}`}
+      className="block"
+    >
           <div 
             key={race.id} 
             className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-200"
@@ -41,6 +47,7 @@ export default function RacesPage() {
             <h2 className="text-2xl font-bold mb-4 text-gray-800">{race.name}</h2>
             
             <div className="space-y-3 mb-4">
+                
               <div className="flex items-center">
                 <span className="font-semibold text-gray-700 mr-2">Размер:</span>
                 <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded">{race.size}</span>
@@ -53,14 +60,17 @@ export default function RacesPage() {
                 <span className="font-semibold text-gray-700 mr-2">Бонусы характеристик:</span>
                 <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">{race.abilityBonus}</span>
               </div>
+              
             </div>
             
             <div className="pt-4 border-t border-gray-200">
               <p className="text-gray-700">{race.description}</p>
             </div>
           </div>
+          </Link>
         ))}
       </div>
     </div>
+    
   );
 }

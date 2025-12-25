@@ -21,9 +21,21 @@ const GET_SPELLS = gql`
 
 export default function SpellsPage() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  
   const { loading, error, data } = useQuery(GET_SPELLS, {
-    variables: { search: searchQuery },
+    variables: { search: searchTerm },
   });
+
+  const handleSearch = () => {
+    setSearchTerm(searchQuery);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   if (loading) return <div className="text-center py-8">Загрузка...</div>;
   if (error) return <div className="text-center py-8 text-red-600">Ошибка: {error.message}</div>;
@@ -34,20 +46,27 @@ export default function SpellsPage() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-8 text-center">Заклинания</h1>
       
-      <div className="mb-8">
+      <div className="mb-8 flex gap-2 max-w-2xl mx-auto">
         <input
           type="text"
           placeholder="Поиск заклинаний..."
-          className="w-full max-w-2xl mx-auto block p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className="flex-1 p-4 bg-gray-800 text-white rounded-lg border border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
+        <button
+          onClick={handleSearch}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 rounded-lg transition-colors"
+        >
+          Поиск
+        </button>
       </div>
 
       <div className="space-y-6">
         {spells.length === 0 ? (
           <div className="text-center py-12 text-gray-500">
-            {searchQuery ? 'Заклинания не найдены' : 'Нет заклинаний'}
+            {searchTerm ? 'Заклинания не найдены' : 'Нет заклинаний'}
           </div>
         ) : (
           spells.map((spell: Spell) => (

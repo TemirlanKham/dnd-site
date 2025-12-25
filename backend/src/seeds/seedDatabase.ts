@@ -5,6 +5,8 @@ import Class from '../models/Class';
 import Race from '../models/Race';
 import { spellsData, classesData, racesData } from './seedData';
 
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/dnd';
+
 const seedDatabase = async () => {
   try {
     // Подключаемся к базе данных
